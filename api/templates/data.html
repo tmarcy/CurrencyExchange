@@ -1,0 +1,42 @@
+{% extends "default.html" %}
+{% block title %}conversion{% endblock %}
+{% block content %}
+<h2>Insert conversion data:</h2>
+<form method="post" action="/conversion">
+    {{form.csrf_token}}
+    <div>{{form.email.label}}:{{form.email}}</div>
+    {% if form.email.errors %}
+    <ul class="error">
+        {% for e in form.email.errors %}
+        {{e}}
+        {% endfor %}
+    </ul>
+    {%endif%}
+    <div>{{form.code_input.label}}:{{form.code_input}}</div>
+        {% if form.code_input.errors %}
+             <ul class=errors>
+            {% for error in form.code_input.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    <div>{{form.code_output.label}}:{{form.code_output}}
+        {% if form.code_output.errors %}
+             <ul class=errors>
+            {% for error in form.code_output.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    <div>{{form.amount.label}}:{{form.amount}}</div>
+    {%if form.amount.errors %}
+    <ul class="error">
+        {% for e in form.amount.errors %}
+        {{e}}
+        {% endfor %}
+    </ul>
+    {%endif%}
+    <div>{{form.submit}}</div>
+</form>
+{% endblock %}

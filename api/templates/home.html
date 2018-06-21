@@ -1,0 +1,23 @@
+{% extends "default.html"%}
+
+{% block title %}homepage{% endblock %}
+
+{% block content %}
+
+
+<h1>Welcome to my WebSite!</h1>
+<h2>Choose your fav link above:</h2>
+
+{% if handlers %}
+<ul>
+    {% for h in handlers %}
+    <li>
+        <a href={{h[1]}}>{{h[0]}}</a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endif %}
+
+{% endblock %}
+
